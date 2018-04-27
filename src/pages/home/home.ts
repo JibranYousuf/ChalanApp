@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
-import {AuthserviceProvider} from '../../providers/authservice/authservice'
+import {AuthserviceProvider} from '../../providers/authservice/authservice';
+import { ProfilePage } from '../profile/profile';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -10,9 +13,13 @@ export class HomePage {
   email = '';
   constructor(private nav: NavController,
      private auth: AuthserviceProvider) {
+    
     let info = this.auth.getUserInfo();
+    
     this.username = info['name'];
     this.email = info['email'];
+
+   
   }
  
   public logout() {
@@ -20,6 +27,10 @@ export class HomePage {
       this.nav.setRoot('WelcomePage')
     });
   }
-  
+  cnics: string[];
+  handleLogin(){
+    this.nav.push(ProfilePage);
+    
+  }
 
 }

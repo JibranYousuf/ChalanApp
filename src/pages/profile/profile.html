@@ -1,0 +1,65 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <ion-badge class="badge">
+   <ion-row>
+    <ion-col> 
+      
+        <h3 class="head"><strong>User Profile</strong></h3>
+        <h4 class="attr">Name:</h4><span class="attrcont"> Muhammad Hamza</span>
+        <h4 class="attr">CNIC:</h4><span class="attrcont">4220130250917</span>
+        <h4 class="attr">Age:</h4><span class="attrcont">21</span>
+        <h4 class="attr">House No:</h4><span class="attrcont">B-21/2 block 8 gulshan</span>
+      
+     </ion-col>
+  </ion-row>
+</ion-badge><br />
+
+
+<ion-row>
+  <ion-col>
+      <ion-card>
+          <ion-card-header class="challanhead">
+            Challan #1
+          </ion-card-header><br />
+          <ion-card-content>
+            <h6>Vehicle:</h6>
+            <h6>Type:</h6>
+            <h6>Amount:</h6>
+            <h6>Status:</h6>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header class="challanhead">
+            Challan #2
+          </ion-card-header><br />
+          <ion-card-content>
+            <h6>Vehicle:</h6>
+            <h6>Type:</h6>
+            <h6>Amount:</h6>
+            <h6>Status:</h6>
+          </ion-card-content>
+        </ion-card>
+  </ion-col>
+</ion-row>
+<button  ion-button block color="dark" (click)="addNewChallan()" >Add New Challan</button>
+
+
+</ion-grid>
+
+
+</ion-content>

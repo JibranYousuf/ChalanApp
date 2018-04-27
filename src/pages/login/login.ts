@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 import {AuthserviceProvider} from '../../providers/authservice/authservice';
-import { TabsPage } from '../tabs/tabs';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -23,7 +23,7 @@ export class LoginPage {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(allowed => {
       if(allowed){
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(HomePage);
       }else{
         this.showError("Access Denied");
       }
@@ -36,8 +36,8 @@ export class LoginPage {
   showLoading(){
     this.loading= this.loadingCtrl.create({
       content:'Please Wait..',
-      dismissOnPageChange: true
-    });
+      dismissOnPageChange:true
+        });
    
   }
   showError(text){

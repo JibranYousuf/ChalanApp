@@ -12,11 +12,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPageModule } from '../pages/login/login.module';
 import { SignupPage } from '../pages/signup/signup';
 import {WelcomePageModule} from '../pages/welcome/welcome.module'
+import {ProfilePageModule} from '../pages/profile/profile.module'; 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthserviceProvider } from '../providers/authservice/authservice';
+import { ProfilePage } from '../pages/profile/profile';
+import {AddChallanPageModule} from "../pages/add-challan/add-challan.module";
+import {PaymentPageModule} from "../pages/payment/payment.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { AuthserviceProvider } from '../providers/authservice/authservice';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     LoginPageModule,
-    WelcomePageModule
+    WelcomePageModule,
+    ProfilePageModule,
+    AddChallanPageModule,
+    PaymentPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,13 +50,15 @@ import { AuthserviceProvider } from '../providers/authservice/authservice';
     HomePage,
     WelcomePage,
     TabsPage,
+    ProfilePage,
     SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthserviceProvider
+    AuthserviceProvider,
+    
   ]
 })
 export class AppModule {}

@@ -42,7 +42,6 @@ $colors: (
   energy:     #f2b632
 );
 
-
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
@@ -85,5 +84,32 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
 @import "noto-sans";
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/lobster/Lobster-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: semi-bold;
+  font-weight: 600;
+  src: url('../assets/fonts/lobster/Lobster-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: bold;
+  font-weight: 700;
+  src: url('../assets/fonts/lobster/Lobster-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: extra-bold;
+  font-weight: 900;
+  src: url('../assets/fonts/lobster/Lobster-Regular.ttf');
+}

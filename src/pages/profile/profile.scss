@@ -1,0 +1,25 @@
+page-profile {
+.head{
+    background-color: color($colors ,dark);
+    border: 1px solid black;
+}
+.attr{
+    border: 1px solid black;
+    background-color: color($colors ,primary);
+
+}
+.badge{
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+.challanhead{
+    background-color: color($colors ,secondary);
+    color: white;
+}
+.attrcont{
+    color: black;
+}
+
+}

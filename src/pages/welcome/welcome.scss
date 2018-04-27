@@ -1,21 +1,25 @@
-page-welcome {
-
-    #welcome{
-      //  background: color($colors,primary);
-    }
+page-welcome {    
     h1{
 
         text-align: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: maroon;
-        font-size: 52px;
+        font-family: "Lobster" !important;
+        font-weight: 400 !important;
+        color: gold;
+        font-size: 40px;
     }
     h6{
-        color: yellow;
+        color: black;
         text-align: center;
         font-size: 20px;
     }
     .margintop{
         margin-top: 150px;
     }
+    ion-content{
+        background-image: url('../assets/imgs/traffic.jpg');
+        background-position: center;
+ 
+    }
+    $font-family-base: "Lobster";
+
 }
