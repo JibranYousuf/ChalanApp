@@ -1,6 +1,8 @@
-
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+
 import 'rxjs/add/operator/map';
  
 export class User {
@@ -15,7 +17,34 @@ export class User {
  
 @Injectable()
 export class AuthserviceProvider {
+
+  url;
+  authToken: any;
+  user: any;
+
+  constructor(public http: HttpClient, private storage: Storage){
+    this.url = 'http://localhost:3000/api/';
+  }
   currentUser: User;
+
+  authenticateUser(user){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type','application/json');
+    return this.http.post(this.url+'login', user, {headers: headers})
+    .map(res => res);
+  }
+  storeUserData(token, user){
+    this.storage.set('token', token);
+    this.storage.set('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
+
+  loadToken(){
+ 
+    const token = this.storage.get('token');
+    this.authToken = token; 
+  }
  
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
@@ -47,11 +76,10 @@ export class AuthserviceProvider {
     return this.currentUser;
   }
  
-  public logout() {
-    return Observable.create(observer => {
-      this.currentUser = null;
-      observer.next(true);
-      observer.complete();
-    });
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    this.storage.clear();
   }
+
 }

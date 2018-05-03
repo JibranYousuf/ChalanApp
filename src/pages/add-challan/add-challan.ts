@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { PaymentPage } from '../payment/payment';
+import { UserProvider}  from '../../providers/user/user';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the AddChallanPage page.
@@ -16,31 +18,33 @@ import { PaymentPage } from '../payment/payment';
 })
 export class AddChallanPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  cnic: any;
+  challanNo: any;
+  challanType: any;
+  challanDateCreated: any;
+  challanDatePaid: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, private userProvider: UserProvider) {
+    this.cnic = this.navParams.get('cnic');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddChallanPage');
   }
-  showConfirm() {
-    let confirm = this.alertCtrl.create({
-      title: 'Confirmation',
-      message: 'Are you sure to Add this Challan?',
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-          this.navCtrl.push(PaymentPage);
-          }
-        }
-      ]
+  onAddNewChallan(){
+    const challan = {
+      challanNo: this.challanNo,
+      challanType: this.challanType,
+      challanDateCreated: this.challanDateCreated,
+      challanDatePaid: this.challanDatePaid
+    }
+    
+    this.userProvider.newChallan(this.cnic['cnic'], challan).subscribe(data =>{
+      if(data){
+        this.navCtrl.push(PaymentPage);
+      } else{
+        this.navCtrl.push(ProfilePage);
+      }
     });
-    confirm.present();
   }
 }

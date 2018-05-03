@@ -14,60 +14,47 @@
 
 
 <ion-content padding>
-  
+  <form (submit)="onAddNewChallan()">
   <ion-item>
-    <ion-label>Vehicle</ion-label>
-    <ion-select [(ngModel)]="vehicle">
-      <ion-option value="f">Honda Civic</ion-option>
-      <ion-option value="m">Toyota Carolla</ion-option>
-      <ion-option value="n">Suzuki Mehran</ion-option>
-      <ion-option value="o">Super Power 70</ion-option>
-    </ion-select>
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDateCreated" name="challanDateCreated"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDatePaid" name="challanDatePaid"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label>Type</ion-label>
-    <ion-select [(ngModel)]="type">
-      <ion-option value="car">Car</ion-option>
-      <ion-option value="bike">Bike</ion-option>
-      <ion-option value="rik">Rikshaw</ion-option>
-      <ion-option value="bus">Bus</ion-option>
-    </ion-select>
+    <ion-input type="text" name="challanNo" [(ngModel)]="challanNo"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Challan Type</ion-label>
-    <ion-select [(ngModel)]="challanType">
-      <ion-option value="car">Exceeding prescribed speed limit</ion-option>
-      <ion-option value="bike">Carrying passengers in a public service vehicle exceeding permissible limit</ion-option>
-      <ion-option value="rik">Violation of traffic signals(Electronic/Manual)</ion-option>
-      <ion-option value="bus">Driving a motor vehicle at night without proper lights</ion-option>
-      <ion-option value="bus">Driving a motor vehicle on the wrong side of the road</ion-option>
-      <ion-option value="bus">Driving a motor vehicle with tinted/covered glasses</ion-option>
-      <ion-option value="bus">Violation of line/lane/zebra crossing etc.</ion-option>
-      <ion-option value="bus">Plying a motor vehicle where and when prohibited</ion-option>
-      <ion-option value="bus">Obstructing traffic</ion-option>
-      <ion-option value="bus">Reckless and negligent driving</ion-option>
-      <ion-option value="bus">Driving a motor vehicle without a driving licence</ion-option>
-      <ion-option value="bus">Using a pressure horn, musical horn or using any other horn in a silence zone</ion-option>
-      <ion-option value="bus">Emitting excessive smoke</ion-option>
-      <ion-option value="bus">Driving an un registered motor vehicle</ion-option>
-      <ion-option value="bus">Driving in violation of age limit</ion-option>
-      <ion-option value="bus">Driving a motor vehicle without fitness certificate</ion-option>
-      <ion-option value="bus">Driving without or in violation of conditions of route permit</ion-option>
-      <ion-option value="bus">Riding a two wheel motorcycle without crash helmet</ion-option>
-      <ion-option value="bus">Pillion riding by more than two persons</ion-option>
-      <ion-option value="bus">Use of hand-held mobile phone while driving</ion-option>
-      <ion-option value="bus">Non-fastening of seatbelt while driving on a notified road</ion-option>
-      <ion-option value="bus">Violation of parking rules</ion-option>
-      <ion-option value="bus">Violation of any other provision of the ordinance or the rules made there under punishable under section 112</ion-option>
+    <ion-select [(ngModel)]="challanType" name="challanType">
+      <ion-option >Exceeding prescribed speed limit</ion-option>
+      <ion-option >Carrying passengers in a public service vehicle exceeding permissible limit</ion-option>
+      <ion-option >Violation of traffic signals(Electronic/Manual)</ion-option>
+      <ion-option >Driving a motor vehicle at night without proper lights</ion-option>
+      <ion-option >Driving a motor vehicle on the wrong side of the road</ion-option>
+      <ion-option >Driving a motor vehicle with tinted/covered glasses</ion-option>
+      <ion-option >Violation of line/lane/zebra crossing etc.</ion-option>
+      <ion-option >Plying a motor vehicle where and when prohibited</ion-option>
+      <ion-option >Obstructing traffic</ion-option>
+      <ion-option >Reckless and negligent driving</ion-option>
+      <ion-option >Driving a motor vehicle without a driving licence</ion-option>
+      <ion-option >Using a pressure horn, musical horn or using any other horn in a silence zone</ion-option>
+      <ion-option >Emitting excessive smoke</ion-option>
+      <ion-option >Driving an un registered motor vehicle</ion-option>
+      <ion-option >Driving in violation of age limit</ion-option>
+      <ion-option >Driving a motor vehicle without fitness certificate</ion-option>
+      <ion-option >Driving without or in violation of conditions of route permit</ion-option>
+      <ion-option >Riding a two wheel motorcycle without crash helmet</ion-option>
+      <ion-option >Pillion riding by more than two persons</ion-option>
+      <ion-option >Use of hand-held mobile phone while driving</ion-option>
+      <ion-option >Non-fastening of seatbelt while driving on a notified road</ion-option>
+      <ion-option >Violation of parking rules</ion-option>
+      <ion-option >Violation of any other provision of the ordinance or the rules made there under punishable under section 112</ion-option>
     </ion-select>
   </ion-item>
-  <ion-item>
-    <ion-label>Fine Amount</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option value="car">Warning</ion-option>
-      <ion-option value="bike">Challan</ion-option>
-    </ion-select>
-  </ion-item>
-  <button   ion-button block color="dark" (click)="showConfirm()" >Add</button>
-
+  <button ion-button block color="dark" type="submit" >Add</button>
+</form>
 </ion-content>

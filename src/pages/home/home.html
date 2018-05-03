@@ -1,31 +1,44 @@
 <ion-header>
-    <ion-navbar color="secondary">
-      <ion-title>
-        ChalanApp
-      </ion-title>
-      <ion-buttons end>
-        <button ion-button (click)="logout()">
-          <ion-icon name="md-log-out"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
-   
-  <ion-content class="home" padding>
-    <h3>Welcome Sargent, {{username}}!</h3>
-    Your Email is: {{email}}
-    
+  <ion-navbar color="secondary">
+    <ion-title>
+      ChalanApp
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="onLogoutClick()">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+  <!-- <h3>Welcome Sargent, {{username}}!</h3>
+    Your Email is: {{email}} -->
+
+  <!-- <ion-row>
+    <ion-col>
+      <form (submit)="onSearchInput(id)" )>
+        <ion-label floating>ID</ion-label>
+        <ion-input type="text" name="id" [(ngModel)]="id" required></ion-input>
+        <button class="margintop" type="submit" ion-button block color="dark">Search</button>
+      </form>
+    </ion-col>
+  </ion-row> -->
+  <form (submit)="onSearchInput(cnic)">
     <ion-row>
       <ion-col>
-    
-    <ion-searchbar (keyup.enter)="handleLogin()" ></ion-searchbar>
-  <ion-list>
-     <!-- <ion-item id="search"  *ngFor="let cnic of cnics">
-      {{ cnic }}
-    </ion-item>  -->
-  </ion-list>
-
-  </ion-col>
-</ion-row>
-  </ion-content>
-
+        <ion-list>
+          <ion-item>
+            <ion-label floating>ID</ion-label>
+            <ion-input type="text" name="cnic" [(ngModel)]="cnic" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button class="margintop" type="submit" ion-button block color="dark">Search</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

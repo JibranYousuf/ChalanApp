@@ -14,18 +14,18 @@
 
 
 <ion-content padding>
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form (submit)="onLoginSubmit()">
       <ion-row>
         <ion-col>  
             <ion-list>
               <ion-item>
                 <ion-label floating>Email</ion-label>
-                <ion-input type="text" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                <ion-input type="text" name="email" [(ngModel)]="email" required></ion-input>
               </ion-item>
   
               <ion-item>
                 <ion-label floating>Password</ion-label>
-                <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
               </ion-item>
   
             </ion-list>
@@ -35,7 +35,7 @@
       
         <ion-row>
           <ion-col>
-            <button class="margintop" type="submit" ion-button block color="dark"  [disabled]="!registerForm.form.valid">Login</button>
+            <button class="margintop" type="submit" ion-button block color="dark">Login</button>
           </ion-col>
         </ion-row>
       </form>   

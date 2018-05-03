@@ -16,14 +16,19 @@ import { AddChallanPage } from '../add-challan/add-challan';
 })  
 export class ProfilePage {
 
+  profile: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.profile = this.navParams.get('profile');
+    console.log(this.profile)
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
   addNewChallan(){
-    this.navCtrl.push(AddChallanPage);
+    this.navCtrl.push(AddChallanPage, {cnic: this.profile});
   }
 
 }

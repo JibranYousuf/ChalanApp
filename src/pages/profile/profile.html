@@ -20,10 +20,10 @@
     <ion-col> 
       
         <h3 class="head"><strong>User Profile</strong></h3>
-        <h4 class="attr">Name:</h4><span class="attrcont"> Muhammad Hamza</span>
-        <h4 class="attr">CNIC:</h4><span class="attrcont">4220130250917</span>
-        <h4 class="attr">Age:</h4><span class="attrcont">21</span>
-        <h4 class="attr">House No:</h4><span class="attrcont">B-21/2 block 8 gulshan</span>
+        <h4 class="attr">Name:</h4><span class="attrcont">{{profile.name}}</span>
+        <h4 class="attr">CNIC:</h4><span class="attrcont">{{profile.cnic}}</span>
+        <h4 class="attr">Designation:</h4><span class="attrcont">{{profile.designation}}</span>
+        <h4 class="attr">Username:</h4><span class="attrcont">{{profile.username}}</span>
       
      </ion-col>
   </ion-row>
@@ -34,24 +34,23 @@
   <ion-col>
       <ion-card>
           <ion-card-header class="challanhead">
-            Challan #1
-          </ion-card-header><br />
+            Challans
+          </ion-card-header>
           <ion-card-content>
-            <h6>Vehicle:</h6>
-            <h6>Type:</h6>
-            <h6>Amount:</h6>
-            <h6>Status:</h6>
-          </ion-card-content>
-        </ion-card>
-        <ion-card>
-          <ion-card-header class="challanhead">
-            Challan #2
-          </ion-card-header><br />
-          <ion-card-content>
-            <h6>Vehicle:</h6>
-            <h6>Type:</h6>
-            <h6>Amount:</h6>
-            <h6>Status:</h6>
+              <ion-list *ngFor="let challan of profile.challans">
+                <ion-item >
+                  <strong> Challan No: </strong> {{challan.challanNo}}
+                </ion-item>
+                <ion-item >
+                  <strong> Challan Type: </strong> {{challan.challanType}}
+                </ion-item>
+                <ion-item >
+                  <strong> Challan Date Created: </strong> {{challan.challanDateCreated}}
+                </ion-item>
+                <ion-item >
+                  <strong> Challan Date Paid: </strong> {{challan.challanDatePaid}}
+                </ion-item>  
+                </ion-list>
           </ion-card-content>
         </ion-card>
   </ion-col>
