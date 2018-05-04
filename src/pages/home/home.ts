@@ -10,33 +10,16 @@ import { UserProvider}  from '../../providers/user/user';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  user: any;
   citizen : any;
-  // email = '';
-  constructor(private nav: NavController,
-     private auth: AuthserviceProvider, private userProvider : UserProvider) {
-    
-  //   let info = this.auth.getUserInfo();
-    
-  //   this.username = info['username'];
-  //   this.email = info['email'];
 
-   
-  // }
- 
-  // public logout() {
-  //   this.auth.logout().subscribe(succ => {
-  //     this.nav.setRoot('WelcomePage')
-  //   });
-  // }
-  // cnics: string[];
-  // handleLogin(){
-  //   this.nav.push(ProfilePage);
-    
-  }
+  constructor(private nav: NavController,
+     private auth: AuthserviceProvider, private userProvider : UserProvider) {    
+      
+    }
 
   onSearchInput(cnic){
     this.userProvider.getUser(cnic).subscribe((profile: any) => {
-      console.log(profile);
       this.citizen = profile.citizen;
       this.nav.push(ProfilePage, {profile: profile});
     },

@@ -12,24 +12,13 @@
 </ion-header>
 
 <ion-content class="home" padding>
-  <!-- <h3>Welcome Sargent, {{username}}!</h3>
-    Your Email is: {{email}} -->
-
-  <!-- <ion-row>
-    <ion-col>
-      <form (submit)="onSearchInput(id)" )>
-        <ion-label floating>ID</ion-label>
-        <ion-input type="text" name="id" [(ngModel)]="id" required></ion-input>
-        <button class="margintop" type="submit" ion-button block color="dark">Search</button>
-      </form>
-    </ion-col>
-  </ion-row> -->
+  <h3>Welcome Sargent!</h3>
   <form (submit)="onSearchInput(cnic)">
     <ion-row>
       <ion-col>
         <ion-list>
           <ion-item>
-            <ion-label floating>ID</ion-label>
+            <ion-label floating>CNIC of Citizen</ion-label>
             <ion-input type="text" name="cnic" [(ngModel)]="cnic" required></ion-input>
           </ion-item>
         </ion-list>

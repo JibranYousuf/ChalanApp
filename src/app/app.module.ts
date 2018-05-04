@@ -12,7 +12,6 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPageModule } from '../pages/login/login.module';
-import { SignupPage } from '../pages/signup/signup';
 import { WelcomePageModule } from '../pages/welcome/welcome.module'
 import { ProfilePageModule } from '../pages/profile/profile.module'; 
 
@@ -32,7 +31,6 @@ import { UserProvider } from '../providers/user/user';
     ContactPage,
     HomePage,
     TabsPage,
-    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +54,6 @@ import { UserProvider } from '../providers/user/user';
     WelcomePage,
     TabsPage,
     ProfilePage,
-    SignupPage
   ],
   providers: [
     StatusBar,
