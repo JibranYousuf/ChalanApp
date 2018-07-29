@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddChallanPage } from '../add-challan/add-challan';
-import { DatePipe } from '@angular/common';
 
 
 @IonicPage()

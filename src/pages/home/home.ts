@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController, ToastController} from 'ionic-angular';
 import { AuthserviceProvider } from '../../providers/authservice/authservice';
 import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
@@ -14,13 +14,19 @@ export class HomePage {
   citizen : any;
 
   constructor(private nav: NavController,
-     private auth: AuthserviceProvider, private userProvider : UserProvider) {    
+     private auth: AuthserviceProvider, private userProvider : UserProvider, private toastCtrl: ToastController ) {    
       
     }
 
   onSearchInput(cnic){
     this.userProvider.getUser(cnic).subscribe((profile: any) => {
       this.citizen = profile.citizen;
+      const toast = this.toastCtrl.create({
+        message: 'profile loaded succesfully',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
       this.nav.push(ProfilePage, {profile: profile});
     },
     err => {

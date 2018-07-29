@@ -18,12 +18,32 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            <ion-label floating>CNIC of Citizen</ion-label>
+            <ion-label floating>{{value}} of Citizen</ion-label>
             <ion-input type="text" name="cnic" [(ngModel)]="cnic" required></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
+    <ion-list radio-group>
+      <ion-list-header>
+       Login Method
+      </ion-list-header>
+    
+      <ion-item>
+        <ion-label>CNIC</ion-label>
+        <ion-radio checked="true" [value]="CNIC"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Lisense</ion-label>
+        <ion-radio [value]="lisense"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Finger Print</ion-label>
+        <ion-radio [value]="fingerprint" ></ion-radio>
+      </ion-item>
+    </ion-list>
     <ion-row>
       <ion-col>
         <button class="margintop" type="submit" ion-button block color="dark">Search</button>

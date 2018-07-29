@@ -1,9 +1,4 @@
-<!--
-  Generated template for the ProfilePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="secondary">
@@ -15,7 +10,7 @@
 
 <ion-content padding>
   <ion-grid>
-      <ion-badge class="badge">
+      <!-- <ion-badge class="badge">
    <ion-row>
     <ion-col> 
       
@@ -27,8 +22,31 @@
       
      </ion-col>
   </ion-row>
-</ion-badge><br />
+</ion-badge><br /> -->
+<ion-card>
+  <ion-card-header>
+    <h1><strong>Citizen's Profile</strong></h1>
+  </ion-card-header>
+  <ion-item>
+    <ion-icon name="happy" item-start large></ion-icon>
+    <h2>{{profile.name}}</h2>
+  </ion-item>
 
+  <ion-item>
+    <ion-icon name="card" item-start large></ion-icon>
+    <h2>{{profile.cnic}}</h2>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="briefcase" item-start large></ion-icon>
+    <h2>{{profile.designation}}</h2>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="contact" item-start large></ion-icon>
+    <h2>{{profile.usersane}}</h2>
+  </ion-item>
+</ion-card>  
 
 <ion-row>
   <ion-col>
