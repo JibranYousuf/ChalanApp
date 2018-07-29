@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage'
+import { DatePipe } from '@angular/common';
 
 import {WelcomePage} from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
@@ -61,7 +62,7 @@ import { UserProvider } from '../providers/user/user';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthserviceProvider,
     UserProvider,
-    
+    DatePipe
   ]
 })
 export class AppModule {}

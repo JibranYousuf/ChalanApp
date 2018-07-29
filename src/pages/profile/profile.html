@@ -39,16 +39,16 @@
           <ion-card-content>
               <ion-list *ngFor="let challan of profile.challans">
                 <ion-item >
-                  <strong> Challan No: </strong> {{challan.challanNo}}
+                  <strong> No: </strong> {{challan.challanNo}}
                 </ion-item>
                 <ion-item >
-                  <strong> Challan Type: </strong> {{challan.challanType}}
+                  <strong>Type: </strong> {{challan.challanType}}
                 </ion-item>
                 <ion-item >
-                  <strong> Challan Date Created: </strong> {{challan.challanDateCreated}}
+                  <strong>Date Created: </strong> {{challan.challanDateCreated | date:'shortDate'}}  
                 </ion-item>
                 <ion-item >
-                  <strong> Challan Date Paid: </strong> {{challan.challanDatePaid}}
+                  <strong>Date Paid: </strong> {{challan.challanDatePaid | date:'shortDate'}}
                 </ion-item>  
                 </ion-list>
           </ion-card-content>
