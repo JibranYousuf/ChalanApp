@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage'
 import { DatePipe } from '@angular/common';
 
-import {WelcomePage} from '../pages/welcome/welcome';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -15,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPageModule } from '../pages/login/login.module';
 import { WelcomePageModule } from '../pages/welcome/welcome.module'
 import { ProfilePageModule } from '../pages/profile/profile.module'; 
+import { ChallansPageModule } from '../pages/challans/challans.module'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { AddChallanPageModule } from "../pages/add-challan/add-challan.module";
 import { PaymentPageModule } from "../pages/payment/payment.module";
 import { UserProvider } from '../providers/user/user';
+import { ChallansPage } from '../pages/challans/challans';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { UserProvider } from '../providers/user/user';
     ProfilePageModule,
     AddChallanPageModule,
     PaymentPageModule,
-    HttpClientModule
+    HttpClientModule,
+    ChallansPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +58,7 @@ import { UserProvider } from '../providers/user/user';
     WelcomePage,
     TabsPage,
     ProfilePage,
+    ChallansPage
   ],
   providers: [
     StatusBar,

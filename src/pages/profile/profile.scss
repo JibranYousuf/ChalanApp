@@ -1,25 +1,46 @@
 page-profile {
-.head{
-    background-color: color($colors ,dark);
-    border: 1px solid black;
-}
-.attr{
-    border: 1px solid black;
-    background-color: color($colors ,primary);
+// .head{
+//     background-color: color($colors ,dark);
+//     border: 1px solid black;
+// }
+// .attr{
+//     border: 1px solid black;
+//     background-color: color($colors ,primary);
 
-}
-.badge{
-    background-color: white;
-    border: 1px solid black;
-}
+// }
+// .badge{
+//     background-color: white;
+//     border: 1px solid black;
+// }
 
 
 .challanhead{
-    background-color: color($colors ,secondary);
-    color: white;
+    background-color: color($colors ,light);
+    
 }
-.attrcont{
-    color: black;
+.challanhead h2 {
+    color: maroon;
+}
+.challanButton{
+}
+.addNewChallan{
+    margin-top: 10px;
+}
+.addCirlce{
+    color: white;
+    padding: 10px;
+    
+}
+.arrowForward{
+    margin-left: 120px;
+    color: maroon;
+
+}
+ion-card-header{
+    align-content: center;
+}
+.ionlistheader{
+    color: maroon;
 }
 
 }

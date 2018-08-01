@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>profile</ion-title>
+    <ion-title>Citizen Details</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,70 +10,46 @@
 
 <ion-content padding>
   <ion-grid>
-      <!-- <ion-badge class="badge">
-   <ion-row>
-    <ion-col> 
-      
-        <h3 class="head"><strong>User Profile</strong></h3>
-        <h4 class="attr">Name:</h4><span class="attrcont">{{profile.name}}</span>
-        <h4 class="attr">CNIC:</h4><span class="attrcont">{{profile.cnic}}</span>
-        <h4 class="attr">Designation:</h4><span class="attrcont">{{profile.designation}}</span>
-        <h4 class="attr">Username:</h4><span class="attrcont">{{profile.username}}</span>
-      
-     </ion-col>
-  </ion-row>
-</ion-badge><br /> -->
 <ion-card>
-  <ion-card-header>
-    <h1><strong>Citizen's Profile</strong></h1>
+  <ion-card-header class="challanhead">
+    <h2><strong>Profile</strong></h2>
   </ion-card-header>
   <ion-item>
     <ion-icon name="happy" item-start large></ion-icon>
-    <h2>{{profile.name}}</h2>
+    <h2>Name:</h2><br />
+    <p>{{profile.name}}</p>
   </ion-item>
-
+  <hr/>
   <ion-item>
     <ion-icon name="card" item-start large></ion-icon>
-    <h2>{{profile.cnic}}</h2>
+    <h2>Cnic:</h2><br />
+    <p>{{profile.cnic}}</p>
   </ion-item>
-
+  <hr/>
   <ion-item>
     <ion-icon name="briefcase" item-start large></ion-icon>
-    <h2>{{profile.designation}}</h2>
+    <h2>Designation:</h2><br />
+    <p>{{profile.designation}}</p>
   </ion-item>
-
+  <hr/>
   <ion-item>
     <ion-icon name="contact" item-start large></ion-icon>
-    <h2>{{profile.usersane}}</h2>
+    <h2>User Name:</h2><br />
+    <p>{{profile.username}}</p>
   </ion-item>
 </ion-card>  
-
-<ion-row>
-  <ion-col>
-      <ion-card>
-          <ion-card-header class="challanhead">
-            Challans
-          </ion-card-header>
-          <ion-card-content>
-              <ion-list *ngFor="let challan of profile.challans">
-                <ion-item >
-                  <strong> No: </strong> {{challan.challanNo}}
-                </ion-item>
-                <ion-item >
-                  <strong>Type: </strong> {{challan.challanType}}
-                </ion-item>
-                <ion-item >
-                  <strong>Date Created: </strong> {{challan.challanDateCreated | date:'shortDate'}}  
-                </ion-item>
-                <ion-item >
-                  <strong>Date Paid: </strong> {{challan.challanDatePaid | date:'shortDate'}}
-                </ion-item>  
-                </ion-list>
-          </ion-card-content>
-        </ion-card>
-  </ion-col>
-</ion-row>
-<button  ion-button block color="dark" (click)="addNewChallan()" >Add New Challan</button>
+<ion-list-header>
+    <p class="ionlistheader">See all the recent challans </p>
+   </ion-list-header>
+<button class="challanButton" ion-item  (click)="openChallansPage()" icon-start>
+  <ion-icon name='paper'  item-start></ion-icon>
+  Challans
+  <ion-icon class="arrowForward"  name='arrow-forward'></ion-icon>
+</button>
+<ion-list-header>
+   <p class="ionlistheader"> you wanna challan this person? </p>
+   </ion-list-header>
+<button class="addNewChallan"  ion-button block color="dark" (click)="addNewChallan()" ><ion-icon class="addCirlce" name='add-circle'></ion-icon>  Add New Challan</button>
 
 
 </ion-grid>
