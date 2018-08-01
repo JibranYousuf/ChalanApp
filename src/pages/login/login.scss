@@ -1,6 +1,37 @@
 page-login {
-    .margintop{
-        margin-top: 50px;
+    h3{
+        font-family: "poppinsreg";
+        font-size: 25px;
+        color: black;
+        font-weight: 600;
+    }
+    p{
+        font-family: "worksans";
+        font-size: 15px;
+        color: gray;    
+    }
+    .margintop1{
+        font-size: 18px;
+        font-family: "PT-sans";
+        margin-top: 60px;
+        }
+    .title{
+        font-family: "Roboto" ;
+        text-transform: uppercase;
+    }
+
+    ion-label{
+        font-family: "poppinsreg";
+        font-weight: 200;
     }
     
+    span{
+        padding: 10px;
+    }
+    .label{
+        color:maroon;
+    }
+    $font-family-base: "Roboto";
+    $font-family-base: "PT-sans";
+    $font-family-base: "poppinsreg";
 }

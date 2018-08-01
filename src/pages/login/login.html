@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title>login</ion-title>
+    <ion-title class="title"><h5>Login</h5></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,20 +9,25 @@
     <ion-row>
       <ion-col>
         <ion-list>
+          <h3 class="greeting">Welcome to Challan App</h3>
+          <p>Hey Sargent! Enter your CNIC to Login</p>
+          
           <ion-item>
-            <ion-label floating>CNIC</ion-label>
+            <ion-label style="color: black" floating><ion-icon name="card" class="label"></ion-icon><span>CNIC</span></ion-label>
+            
             <ion-input type="text" name="cnic" [(ngModel)]="cnic" required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>Password</ion-label>
+            <ion-label style="color: black" floating><ion-icon name="lock" class="label"></ion-icon><span> Password</span></ion-label>
             <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
           </ion-item>
+        
         </ion-list>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <button class="margintop" type="submit" ion-button block color="dark">Login</button>
+        <button class="margintop1" type="submit" ion-button block color="dark">SignIn</button>
       </ion-col>
     </ion-row>
   </form>
