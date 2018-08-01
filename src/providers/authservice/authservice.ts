@@ -18,8 +18,7 @@ export class AuthserviceProvider {
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.post(this.url+'login', user, {headers: headers})
-    .map(res => res);
-  }
+  } 
   
   getProfile(){
     let headers = new HttpHeaders();

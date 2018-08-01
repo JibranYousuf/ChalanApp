@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import {AuthserviceProvider} from '../../providers/authservice/authservice';
 import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
+import { error } from 'util';
 
 @IonicPage()
 @Component({
@@ -32,7 +33,7 @@ export class LoginPage {
     }
 
     this.auth.authenticateUser(user).subscribe((data :any)=>{
-      if(data){
+      if(data.success){ 
         this.auth.storeUserData(data.token, data.user);
           this.storage.set('user',JSON.stringify(data.user))
           const toast = this.toastCtrl.create({
@@ -43,7 +44,7 @@ export class LoginPage {
           toast.present();
           this.navCtrl.push(HomePage);
       } else {
-        console.log('not loggin')
+        console.log(data)
         this.navCtrl.push(LoginPage);
       }
     })
@@ -52,5 +53,4 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
 }
