@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 
 
@@ -11,7 +11,9 @@ import {LoginPage} from '../login/login';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  private menuCtrl: MenuController) {
+    this.menuActive();
   }
 
   ionViewDidLoad() {
@@ -19,5 +21,8 @@ export class WelcomePage {
   }
   login(){
     this.navCtrl.push(LoginPage);
+  }
+  menuActive(){
+    this.menuCtrl.enable(false);
   }
 }

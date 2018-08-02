@@ -1,1 +1,23 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="nav">
+    <ion-header color="danger">
+      <ion-toolbar>
+        <ion-title>
+          MENU
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item (click)="viewProfilePage()">
+          <ion-icon name="contact" item-left>Profile</ion-icon>
+        </button>
+      </ion-list>
+      <ion-list>
+          <button ion-item>
+            <ion-icon name="log-out" (click)="onLogoutClick()" item-left>Logout</ion-icon>
+          </button>
+        </ion-list>
+    </ion-content>
+  </ion-menu>
+
+<ion-nav [root]="welcomePage" #nav></ion-nav>

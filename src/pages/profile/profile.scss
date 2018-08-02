@@ -1,19 +1,17 @@
 page-profile {
-// .head{
-//     background-color: color($colors ,dark);
-//     border: 1px solid black;
-// }
-// .attr{
-//     border: 1px solid black;
-//     background-color: color($colors ,primary);
 
-// }
-// .badge{
-//     background-color: white;
-//     border: 1px solid black;
-// }
-
-
+    h5{
+        font-family: "Roboto" ;
+        text-transform: uppercase;
+        position: absolute;
+        top: -25px;
+        right: 30px;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+            }
+ 
+    
 .challanhead{
     background-color: color($colors ,light);
     
@@ -42,5 +40,11 @@ ion-card-header{
 .ionlistheader{
     color: maroon;
 }
+ion-content{
+    font-family: "poppins"
+}
+$font-family-base: "poppins";
+$font-family-base: "PT-sans";
+$font-family-base: "Roboto";
 
 }

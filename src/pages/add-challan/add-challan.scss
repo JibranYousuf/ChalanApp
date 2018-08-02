@@ -1,3 +1,19 @@
 page-add-challan {
 
+  h5{
+    font-family: "Roboto" ;
+    text-transform: uppercase;
+    position: absolute;
+    top: -25px;
+    right: 30px;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+        }
+  ion-content{
+    font-family: "poppinsreg"
+  }      
+  $font-family-base: "poppinsreg";
+  $font-family-base: "PT-sans";
+  $font-family-base: "Roboto";
 }

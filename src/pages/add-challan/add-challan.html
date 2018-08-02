@@ -1,21 +1,21 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title>AddChallan</ion-title>
+    <ion-title><h5>AddChallan</h5></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <form (submit)="onAddNewChallan()">
     <ion-item>
-      <ion-label>Date</ion-label>
+      <ion-label>Date Created</ion-label>
       <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDateCreated" name="challanDateCreated"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label>Date</ion-label>
+      <ion-label>Date Paid</ion-label>
       <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDatePaid" name="challanDatePaid"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label>No</ion-label>
+      <ion-label>Number</ion-label>
       <ion-input type="text" name="challanNo" [(ngModel)]="challanNo"></ion-input>
     </ion-item>
     <ion-item>
@@ -45,6 +45,14 @@
         <ion-option>Violation of parking rules</ion-option>
         <ion-option>Violation of any other provision of the ordinance or the rules made there under punishable under section 112</ion-option>
       </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Lisense No.</ion-label>
+      <ion-input type="text" name="licenseNo" [(ngModel)]="licenseNo"></ion-input>      
+    </ion-item>
+    <ion-item>
+      <ion-label>Paid</ion-label>
+    <ion-toggle color="secondary" name="paid" [(ngModel)]="paid"></ion-toggle>
     </ion-item>
     <button ion-button block color="dark" type="submit">Add</button>
   </form>

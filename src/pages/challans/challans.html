@@ -7,7 +7,7 @@
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>
-       Challan List
+       <h5>Challan List</h5>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -18,15 +18,15 @@
     <ion-col>
         
         <ion-card  *ngFor="let challans of challans">
-            <ion-card-header  class="challanhead">
+            <ion-card-header text-wrap class="challanhead">
               Challan No {{challans.challanNo}}
-            </ion-card-header>
+            </ion-card-header >
            
             <ion-card-content>
-                <ion-scroll scrollX="true">        
+                        
                 <ion-list >
                   
-                  <ion-item >
+                  <ion-item text-wrap  >
                     <strong>Type: </strong> {{challans.challanType}}
                   </ion-item>
                   <ion-item >
@@ -34,9 +34,15 @@
                   </ion-item>
                   <ion-item >
                     <strong>Date Paid: </strong> {{challans.challanDatePaid | date:'shortDate'}}
+                  </ion-item>
+                  <ion-item >
+                    <strong>License No: </strong> {{challans.challannLicenseNo}}
+                  </ion-item>
+                  <ion-item >
+                    <strong>Date Paid: </strong> {{challans.challanPaid}}
                   </ion-item>  
                   </ion-list>
-                </ion-scroll>
+                
             </ion-card-content>
           
           </ion-card>

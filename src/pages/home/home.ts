@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, ToastController} from 'ionic-angular';
+import { Component} from '@angular/core';
+import { NavController, ToastController, MenuController, LoadingController,AlertController} from 'ionic-angular';
 import { AuthserviceProvider } from '../../providers/authservice/authservice';
-import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
 import { UserProvider}  from '../../providers/user/user';
 
@@ -13,13 +12,37 @@ export class HomePage {
   user: any;
   citizen : any;
 
-  constructor(private nav: NavController,
-     private auth: AuthserviceProvider, private userProvider : UserProvider, private toastCtrl: ToastController ) {    
-      
-    }
+  
 
+  constructor(
+     private nav: NavController,
+     private menuCtrl: MenuController,
+     private auth: AuthserviceProvider,
+     private userProvider : UserProvider, 
+     private toastCtrl: ToastController,
+     private loadingCtrl: LoadingController,
+     private alertCtrl: AlertController
+       ) {    
+      this.menuActive();
+    }
+  
   onSearchInput(cnic){
+    const loading = this.loadingCtrl.create({
+      content: 'Searching..',
+
+    });
+    loading.present(); 
+
+    const alert = this.alertCtrl.create({
+      title: 'Citizen Not Found',
+      buttons: ['OK']
+    });
+
+
     this.userProvider.getUser(cnic).subscribe((profile: any) => {
+      
+      loading.dismiss();
+
       this.citizen = profile.citizen;
       const toast = this.toastCtrl.create({
         message: 'profile loaded succesfully',
@@ -30,14 +53,17 @@ export class HomePage {
       this.nav.push(ProfilePage, {profile: profile});
     },
     err => {
+      
+      alert.present();
       console.log(err);
       return false;
     });
   }
-  
-  onLogoutClick(){
-    this.auth.logout();
-    this.nav.push(LoginPage)
-    return false;
+  onOpenMenu(){
+    this.menuCtrl.open();
   }
+  menuActive(){
+    this.menuCtrl.enable(true);
+  }
+  
 }

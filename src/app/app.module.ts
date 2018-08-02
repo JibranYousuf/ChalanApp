@@ -26,6 +26,8 @@ import { AddChallanPageModule } from "../pages/add-challan/add-challan.module";
 import { PaymentPageModule } from "../pages/payment/payment.module";
 import { UserProvider } from '../providers/user/user';
 import { ChallansPage } from '../pages/challans/challans';
+import { CitizenProfilePageModule} from '../pages/citizen-profile/citizen-profile.module';
+import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ChallansPage } from '../pages/challans/challans';
     AddChallanPageModule,
     PaymentPageModule,
     HttpClientModule,
-    ChallansPageModule
+    ChallansPageModule,
+    CitizenProfilePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +61,8 @@ import { ChallansPage } from '../pages/challans/challans';
     WelcomePage,
     TabsPage,
     ProfilePage,
-    ChallansPage
+    ChallansPage,
+    CitizenProfilePage
   ],
   providers: [
     StatusBar,
