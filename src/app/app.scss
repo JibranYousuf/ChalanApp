@@ -1,6 +1,12 @@
 $font-family-base: "Lobster";
-page-app{
- ion-title{
+
+ .title{
    text-align: center;
    }
-}
+
+  .spann{
+    padding: 50px;
+    font-family: "Robotolight";
+    font-size: 21px;
+  }
+  $font-family-base: "Robotolight";

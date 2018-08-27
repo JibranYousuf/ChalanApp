@@ -7,7 +7,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
 import { LoginPage} from '../pages/login/login';
 import { ProfilePage} from '../pages/profile/profile';
-
+import { SettingsPage} from '../pages/settings/settings';
 
 import { AuthserviceProvider } from '../providers/authservice/authservice';
 
@@ -18,9 +18,10 @@ import { AuthserviceProvider } from '../providers/authservice/authservice';
 export class MyApp {
   
   welcomePage: any = WelcomePage;
-  citizenProfilePage = CitizenProfilePage;
-  loginPage = LoginPage;
-  profilePage = ProfilePage;
+  citizenProfilePage:any = CitizenProfilePage;
+  loginPage:any = LoginPage;
+  profilePage:any = ProfilePage;
+  settingsPage:any = SettingsPage;
   @ViewChild('nav') nav: NavController;
 
   constructor(platform: Platform, 
@@ -33,14 +34,13 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.show();
+      splashScreen.hide();
     });
   }
   onLogoutClick(){
     this.auth.logout();
     this.nav.popToRoot();
     this.menuCtrl.close();
-    return false;
   }
 
   viewProfilePage(page: any){

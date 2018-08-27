@@ -28,7 +28,10 @@ import { UserProvider } from '../providers/user/user';
 import { ChallansPage } from '../pages/challans/challans';
 import { CitizenProfilePageModule} from '../pages/citizen-profile/citizen-profile.module';
 import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
-
+import { CreditCardPageModule} from '../pages/credit-card/credit-card.module';
+import { CreditCardPage } from '../pages/credit-card/credit-card';
+import { SettingsPageModule} from '../pages/settings/settings.module';
+import { SettingsPage } from '../pages/settings/settings';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,7 +51,9 @@ import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
     PaymentPageModule,
     HttpClientModule,
     ChallansPageModule,
-    CitizenProfilePageModule
+    CitizenProfilePageModule,
+    CreditCardPageModule,
+    SettingsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,7 +67,9 @@ import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
     TabsPage,
     ProfilePage,
     ChallansPage,
-    CitizenProfilePage
+    CitizenProfilePage,
+    CreditCardPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
@@ -70,7 +77,7 @@ import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthserviceProvider,
     UserProvider,
-    DatePipe
+    DatePipe,
   ]
 })
 export class AppModule {}

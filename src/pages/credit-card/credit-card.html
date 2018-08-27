@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title><h5>Credit Card</h5></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (submit)="onPayment()">
+    <ion-item>
+      <ion-label>
+        <ion-icon name='card'></ion-icon><span>Credit Card</span>
+      </ion-label>
+      <ion-input type="text" name="cardNo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-icon name='calendar'></ion-icon> <span>Expiry Month</span>
+      </ion-label>
+      <ion-input type="text" name="expMon"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="calendar"></ion-icon> <span>Expiry Year</span>
+      </ion-label>
+      <ion-input type="text" name="expYr" ></ion-input>
+    </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name='code'></ion-icon> <span>CVC</span>
+        </ion-label>
+        <ion-input type="text" name="cvc"></ion-input>
+      </ion-item>
+      <button ion-button block color="primary" type="submit">Pay Now</button>
+  </form>
+</ion-content>

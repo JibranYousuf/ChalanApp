@@ -3,4 +3,25 @@ page-payment {
         background-color: color($colors ,dark);
         color: white;
     }
+    ion-card-header{font-family: "poppins"}
+    ion-card{font-family: "poppinsreg"}
+    
+    ion-item{font-family: "poppinsreg"}
+    h5{
+        font-family: "Roboto" ;
+        text-transform: uppercase;
+        position: absolute;
+        top: -25px;
+        right: 30px;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+            }
+    Button{
+        font-family: "PT-sans";
+        font-size: 18px;
+    }
+    $font-family-base: "poppins";
+$font-family-base: "PT-sans";
+$font-family-base: "poppinsreg";
 }

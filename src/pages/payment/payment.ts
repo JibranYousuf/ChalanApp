@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { CreditCardPage } from '../credit-card/credit-card';
 
 /**
  * Generated class for the PaymentPage page.
@@ -18,19 +19,8 @@ export class PaymentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
   paymentMethod(){
-    let alert = this.alertCtrl.create({
-      title: 'Challan Added',
-      buttons: [
-        {
-          text: 'OK',
-          handler: () => {
-            this.navCtrl.popToRoot();
-          }
-        }
-      ]
-    
-    });
-    alert.present();
+   
+    this.navCtrl.push(CreditCardPage)
   }
  
 

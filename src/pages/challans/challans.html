@@ -1,53 +1,34 @@
-<!--
-  Generated template for the ChallansPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>
-       <h5>Challan List</h5>
+      <h5>Challan List</h5>
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
   <ion-row>
     <ion-col>
-        
-        <ion-card  *ngFor="let challans of challans">
-            <ion-card-header text-wrap class="challanhead">
-              Challan No {{challans.challanNo}}
-            </ion-card-header >
-           
-            <ion-card-content>
-                        
-                <ion-list >
-                  
-                  <ion-item text-wrap  >
-                    <strong>Type: </strong> {{challans.challanType}}
-                  </ion-item>
-                  <ion-item >
-                    <strong>Date Created: </strong> {{challans.challanDateCreated | date:'shortDate'}}  
-                  </ion-item>
-                  <ion-item >
-                    <strong>Date Paid: </strong> {{challans.challanDatePaid | date:'shortDate'}}
-                  </ion-item>
-                  <ion-item >
-                    <strong>License No: </strong> {{challans.challannLicenseNo}}
-                  </ion-item>
-                  <ion-item >
-                    <strong>Date Paid: </strong> {{challans.challanPaid}}
-                  </ion-item>  
-                  </ion-list>
-                
-            </ion-card-content>
-          
-          </ion-card>
-        
-       
+      <ion-card *ngFor="let challan of challans">
+        <ion-card-header text-wrap class="challanhead">
+          Challan No {{challan.challanNo}}
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item text-wrap>
+              <strong>Type: </strong> {{challan.challanType}}
+            </ion-item>
+            <ion-item>
+              <strong>Date Created: </strong> {{challan.challanDateCreated | date:'shortDate'}}
+            </ion-item>
+            <ion-item>
+              <strong>Date Paid: </strong> {{challan.challanDatePaid | date:'shortDate'}}
+            </ion-item>
+            <ion-item>
+              <strong>Date Paid: </strong> {{challan.challanPaid}}
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
     </ion-col>
   </ion-row>
 </ion-content>

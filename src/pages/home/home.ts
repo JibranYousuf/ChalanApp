@@ -12,12 +12,9 @@ export class HomePage {
   user: any;
   citizen : any;
 
-  
-
   constructor(
      private nav: NavController,
      private menuCtrl: MenuController,
-     private auth: AuthserviceProvider,
      private userProvider : UserProvider, 
      private toastCtrl: ToastController,
      private loadingCtrl: LoadingController,
@@ -33,31 +30,28 @@ export class HomePage {
     });
     loading.present(); 
 
-    const alert = this.alertCtrl.create({
-      title: 'Citizen Not Found',
-      buttons: ['OK']
-    });
-
-
     this.userProvider.getUser(cnic).subscribe((profile: any) => {
-      
       loading.dismiss();
 
+      if(profile){
       this.citizen = profile.citizen;
       const toast = this.toastCtrl.create({
-        message: 'profile loaded succesfully',
+        message: 'Citizen Searched Succesfully',
         duration: 3000,
         position: 'bottom'
       });
       toast.present();
       this.nav.push(ProfilePage, {profile: profile});
-    },
-    err => {
-      
-      alert.present();
-      console.log(err);
-      return false;
+    }    
+   },
+  errResponse =>{
+    loading.dismiss();
+    const alert = this.alertCtrl.create({
+      title: 'Citizen Not Found',
+      buttons: ['OK']
     });
+    alert.present();
+  });
   }
   onOpenMenu(){
     this.menuCtrl.open();
