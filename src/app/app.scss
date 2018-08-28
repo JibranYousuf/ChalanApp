@@ -10,3 +10,9 @@ $font-family-base: "Lobster";
     font-size: 21px;
   }
   $font-family-base: "Robotolight";
+
+.alert-md .alert-radio-label,
+.alert-ios .alert-radio-label
+{
+white-space: normal !important;
+}

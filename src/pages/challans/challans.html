@@ -8,9 +8,9 @@
 <ion-content padding>
   <ion-row>
     <ion-col>
-      <ion-card *ngFor="let challan of challans">
+      <ion-card *ngFor="let challan of challans; let i = index">
         <ion-card-header text-wrap class="challanhead">
-          Challan No {{challan.challanNo}}
+          Challan No {{i + 1}}
         </ion-card-header>
         <ion-card-content>
           <ion-list>
