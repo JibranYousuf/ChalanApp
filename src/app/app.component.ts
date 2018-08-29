@@ -9,6 +9,7 @@ import { ProfilePage} from '../pages/profile/profile';
 import { SettingsPage} from '../pages/settings/settings';
 
 import { AuthserviceProvider } from '../providers/authservice/authservice';
+import { HomePage } from '../pages/home/home';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class MyApp {
   loginPage:any = LoginPage;
   profilePage:any = ProfilePage;
   settingsPage:any = SettingsPage;
+  rootPage:any = LoginPage; 
+  homepage: any = HomePage
   @ViewChild('nav') nav: NavController;
 
   constructor(platform: Platform, 
@@ -34,6 +37,13 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    if(this.auth.isLogged() === true){
+      this.rootPage = HomePage;
+    }
+    else {
+      this.rootPage = LoginPage;
+    }
   }
   onLogoutClick(){
     this.auth.logout();
@@ -45,4 +55,6 @@ export class MyApp {
     this.nav.setRoot(page);
     this.menuCtrl.close();
   }
+
+
 }

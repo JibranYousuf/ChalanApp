@@ -30,6 +30,8 @@ export class AuthserviceProvider {
   )
 }
 
+  
+
   storeUserData(token, user){
     this.storage.set('token', token);
     this.storage.set('user', JSON.stringify(user));
@@ -50,4 +52,23 @@ export class AuthserviceProvider {
     this.storage.clear();
   }
 
+  isLogged(){
+    if(this.storage.get('token')){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  isAuthenticated(){
+
+    const token =this.loadToken();
+    if(token){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }
