@@ -12,10 +12,10 @@ import { ProfilePage } from '../profile/profile';
 export class AddChallanPage {
 
   cnic: any;
-  challanNo: any;
   challanType: any;
   challanDateCreated: any;
   challanDatePaid: any;
+  data: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private userProvider: UserProvider) {
     this.cnic = this.navParams.get('cnic');
@@ -26,7 +26,6 @@ export class AddChallanPage {
   }
   onAddNewChallan() {
     const challan = {
-      challanNo: this.challanNo,
       challanType: this.challanType,
       challanDateCreated: this.challanDateCreated,
       challanDatePaid: this.challanDatePaid
@@ -34,7 +33,7 @@ export class AddChallanPage {
 
     this.userProvider.newChallan(this.cnic['cnic'], challan).subscribe(data => {
       if (data) {
-        this.navCtrl.push(PaymentPage);
+        this.navCtrl.push(PaymentPage, { newChallanAdded: this.data});
       } else {
         this.navCtrl.push(ProfilePage);
       }

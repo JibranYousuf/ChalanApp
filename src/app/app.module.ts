@@ -26,8 +26,6 @@ import { AddChallanPageModule } from "../pages/add-challan/add-challan.module";
 import { PaymentPageModule } from "../pages/payment/payment.module";
 import { UserProvider } from '../providers/user/user';
 import { ChallansPage } from '../pages/challans/challans';
-import { CitizenProfilePageModule} from '../pages/citizen-profile/citizen-profile.module';
-import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
 import { CreditCardPageModule} from '../pages/credit-card/credit-card.module';
 import { CreditCardPage } from '../pages/credit-card/credit-card';
 import { SettingsPageModule} from '../pages/settings/settings.module';
@@ -51,7 +49,6 @@ import { SettingsPage } from '../pages/settings/settings';
     PaymentPageModule,
     HttpClientModule,
     ChallansPageModule,
-    CitizenProfilePageModule,
     CreditCardPageModule,
     SettingsPageModule
   ],
@@ -67,7 +64,6 @@ import { SettingsPage } from '../pages/settings/settings';
     TabsPage,
     ProfilePage,
     ChallansPage,
-    CitizenProfilePage,
     CreditCardPage,
     SettingsPage
   ],

@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { WelcomePage } from '../pages/welcome/welcome';
-import { CitizenProfilePage } from '../pages/citizen-profile/citizen-profile';
 import { LoginPage} from '../pages/login/login';
 import { ProfilePage} from '../pages/profile/profile';
 import { SettingsPage} from '../pages/settings/settings';
@@ -18,7 +17,6 @@ import { AuthserviceProvider } from '../providers/authservice/authservice';
 export class MyApp {
   
   welcomePage: any = WelcomePage;
-  citizenProfilePage:any = CitizenProfilePage;
   loginPage:any = LoginPage;
   profilePage:any = ProfilePage;
   settingsPage:any = SettingsPage;

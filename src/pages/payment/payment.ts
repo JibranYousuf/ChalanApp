@@ -16,7 +16,11 @@ import { CreditCardPage } from '../credit-card/credit-card';
 })
 export class PaymentPage {
 
+  newChallanAdded: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+    this.newChallanAdded = this.navParams.get('newChallanAdded');
+
   }
   paymentMethod(){
    
