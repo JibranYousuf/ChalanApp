@@ -56,5 +56,10 @@ export class MyApp {
     this.menuCtrl.close();
   }
 
+  viewSettingsPage(page: any){
+    this.nav.setRoot(page);
+    this.menuCtrl.close();
+  }
+
 
 }

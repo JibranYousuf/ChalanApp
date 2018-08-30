@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, ToastController, MenuController, L
 import { AuthserviceProvider } from '../../providers/authservice/authservice';
 import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
-import { error } from 'util';
+import { FormBuilder, FormGroup, Validators ,AbstractControl} from '@angular/forms';
+
 
 @IonicPage()
 @Component({
@@ -13,9 +14,10 @@ import { error } from 'util';
 export class LoginPage {
   // loading: Loading;
   // registerCredentials = {email: '', password:''};
-
-  cnic: String;
-  password: String;
+  
+  loginForm: FormGroup;
+  cnic: AbstractControl;
+  password: AbstractControl;
   public type = 'password';
   public showPass = false;
 
@@ -28,8 +30,23 @@ export class LoginPage {
     private toastCtrl: ToastController,
     private menuCtrl: MenuController,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    public formBuilder: FormBuilder
+  ) {
+
+    this.createForm();
     this.menuActive();
+  }
+
+  createForm()
+  {
+    this.loginForm = this.formBuilder.group({
+
+    cnic:['', Validators.required],
+    password:['',Validators.required]
+  });
+    this.cnic = this.loginForm.controls['cnic'];
+    this.password = this.loginForm.controls['password'];
   }
 
   showPassword() {
@@ -51,8 +68,8 @@ export class LoginPage {
     loading.present();
 
     const user = {
-      cnic: this.cnic,
-      password: this.password,
+      cnic: this.loginForm.value.cnic,
+      password: this.loginForm.value.password,
     }
 
     this.auth.authenticateUser(user).subscribe((data: any) => {

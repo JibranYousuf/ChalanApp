@@ -6,18 +6,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form (submit)="onAddNewChallan()">
+  <form [formGroup]="challanForm" (submit)="onAddNewChallan()">
     <ion-item>
       <ion-label>Date Created</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDateCreated" name="challanDateCreated"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="challanDateCreated" name="challanDateCreated"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Date Paid</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="challanDatePaid" name="challanDatePaid"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="challanDatePaid" name="challanDatePaid"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Type</ion-label>
-      <ion-select [(ngModel)]="challanType" name="challanType">
+      <ion-select formControlName="challanType" name="challanType">
         <ion-option>Exceeding prescribed speed limit</ion-option>
         <ion-option>Carrying passengers in a public service vehicle exceeding permissible limit</ion-option>
         <ion-option>Violation of traffic signals(Electronic/Manual)</ion-option>
@@ -45,8 +45,8 @@
     </ion-item>
     <ion-item>
       <ion-label>Paid</ion-label>
-      <ion-toggle color="secondary" name="paid" [(ngModel)]="paid"></ion-toggle>
+      <ion-toggle color="secondary" name="paid"></ion-toggle>
     </ion-item>
-    <button ion-button block color="dark" type="submit">Add</button>
+    <button ion-button block color="dark" [disabled]="!challanForm.controls.challanType.valid" type="submit">Add</button>
   </form>
 </ion-content>

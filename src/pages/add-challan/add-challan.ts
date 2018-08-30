@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { PaymentPage } from '../payment/payment';
 import { UserProvider } from '../../providers/user/user';
 import { ProfilePage } from '../profile/profile';
+import { FormBuilder, FormGroup, Validators ,AbstractControl} from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -11,14 +12,34 @@ import { ProfilePage } from '../profile/profile';
 })
 export class AddChallanPage {
 
+  challanForm: FormGroup;
   cnic: any;
-  challanType: any;
-  challanDateCreated: any;
-  challanDatePaid: any;
+  challanType: AbstractControl;
+  challanDateCreated: AbstractControl;
+  challanDatePaid: AbstractControl;
   data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private userProvider: UserProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public alertCtrl: AlertController, 
+    private userProvider: UserProvider,
+    public formBuilder: FormBuilder
+  ) {
     this.cnic = this.navParams.get('cnic');
+    this.createChallanForm();
+  }
+
+  createChallanForm(){
+    this.challanForm = this.formBuilder.group({
+      challanType:['', Validators.required],
+      challanDateCreated:['',Validators.required],
+      challanDatePaid:['']
+    });
+    
+    this.challanType = this.challanForm.controls['challanType'];
+    this.challanDateCreated = this.challanForm.controls['challanDateCreated'];
+    this.challanDatePaid = this.challanForm.controls['challanDatePaid']
   }
 
   ionViewDidLoad() {
@@ -26,9 +47,9 @@ export class AddChallanPage {
   }
   onAddNewChallan() {
     const challan = {
-      challanType: this.challanType,
-      challanDateCreated: this.challanDateCreated,
-      challanDatePaid: this.challanDatePaid
+      challanType: this.challanForm.value.challanType,
+      challanDateCreated: this.challanForm.value.challanDateCreated,
+      challanDatePaid: this.challanForm.value.challanDatePaid,
     }
 
     this.userProvider.newChallan(this.cnic['cnic'], challan).subscribe(data => {

@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { NavController, ToastController, MenuController, LoadingController,AlertController} from 'ionic-angular';
-import { AuthserviceProvider } from '../../providers/authservice/authservice';
 import { ProfilePage } from '../profile/profile';
 import { UserProvider}  from '../../providers/user/user';
 

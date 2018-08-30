@@ -19,6 +19,7 @@ import { ChallansPageModule } from '../pages/challans/challans.module'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Stripe } from '@ionic-native/stripe';
 
 import { AuthserviceProvider } from '../providers/authservice/authservice';
 import { ProfilePage } from '../pages/profile/profile';
@@ -30,6 +31,7 @@ import { CreditCardPageModule} from '../pages/credit-card/credit-card.module';
 import { CreditCardPage } from '../pages/credit-card/credit-card';
 import { SettingsPageModule} from '../pages/settings/settings.module';
 import { SettingsPage } from '../pages/settings/settings';
+import { StripeCcProvider } from '../providers/stripe-cc/stripe-cc';
 @NgModule({
   declarations: [
     MyApp,
@@ -55,7 +57,6 @@ import { SettingsPage } from '../pages/settings/settings';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-
     AboutPage,
     ContactPage,
     LoginPage,
@@ -74,6 +75,8 @@ import { SettingsPage } from '../pages/settings/settings';
     AuthserviceProvider,
     UserProvider,
     DatePipe,
+    Stripe,
+    StripeCcProvider
   ]
 })
 export class AppModule {}

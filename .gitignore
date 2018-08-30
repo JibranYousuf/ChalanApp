@@ -15,6 +15,7 @@ npm-debug.log*
 .idea/
 .sourcemaps/
 .sass-cache/
+node_modules/
 .tmp/
 .versions/
 coverage/
