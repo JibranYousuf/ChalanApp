@@ -14,6 +14,7 @@ export class AddChallanPage {
 
   challanForm: FormGroup;
   cnic: any;
+  amount: AbstractControl;
   challanType: AbstractControl;
   challanDateCreated: AbstractControl;
   challanDatePaid: AbstractControl;
@@ -34,12 +35,14 @@ export class AddChallanPage {
     this.challanForm = this.formBuilder.group({
       challanType:['', Validators.required],
       challanDateCreated:['',Validators.required],
+      amount:['',Validators.required],
       challanDatePaid:['']
     });
     
     this.challanType = this.challanForm.controls['challanType'];
     this.challanDateCreated = this.challanForm.controls['challanDateCreated'];
     this.challanDatePaid = this.challanForm.controls['challanDatePaid']
+    this.amount = this.challanForm.controls['amount']
   }
 
   ionViewDidLoad() {
@@ -50,6 +53,7 @@ export class AddChallanPage {
       challanType: this.challanForm.value.challanType,
       challanDateCreated: this.challanForm.value.challanDateCreated,
       challanDatePaid: this.challanForm.value.challanDatePaid,
+      amount: this.challanForm.value.amount
     }
 
     this.userProvider.newChallan(this.cnic['cnic'], challan).subscribe(data => {

@@ -4,12 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { WelcomePage } from '../pages/welcome/welcome';
-import { LoginPage} from '../pages/login/login';
 import { ProfilePage} from '../pages/profile/profile';
 import { SettingsPage} from '../pages/settings/settings';
 
 import { AuthserviceProvider } from '../providers/authservice/authservice';
 import { HomePage } from '../pages/home/home';
+import { CreditCardPage } from '../pages/credit-card/credit-card';
 
 
 @Component({
@@ -17,11 +17,9 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   
-  welcomePage: any = WelcomePage;
-  loginPage:any = LoginPage;
   profilePage:any = ProfilePage;
   settingsPage:any = SettingsPage;
-  rootPage:any = LoginPage; 
+  rootPage:any = WelcomePage; 
   homepage: any = HomePage
   @ViewChild('nav') nav: NavController;
 
@@ -36,15 +34,20 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      if(this.auth.isLogged() === true){
+        this.rootPage = HomePage;
+      }
+      else {
+        this.rootPage = WelcomePage;
+      }
+      this.nav.setRoot(this.rootPage);
     });
-
-    if(this.auth.isLogged() === true){
-      this.rootPage = HomePage;
-    }
-    else {
-      this.rootPage = LoginPage;
-    }
   }
+
+  ionViewWillEnter() {
+    
+  }  
+
   onLogoutClick(){
     this.auth.logout();
     this.nav.popToRoot();

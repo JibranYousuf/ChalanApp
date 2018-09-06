@@ -19,9 +19,7 @@ export class StripeCcProvider {
   payViaStripe(data){
     var data;
     let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/xxx-form-urlencoded');
+    headers.append('Content-Type', 'application/xxx-www-form-urlencoded');
     return this.httpClient.get(this.url + 'processpay/' + data, { headers: headers })
-      .subscribe(function (res) { return res }
-      )
     }
 }

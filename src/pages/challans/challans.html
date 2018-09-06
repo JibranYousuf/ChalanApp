@@ -9,7 +9,7 @@
   <ion-row>
     <ion-col>
       <ion-card *ngFor="let challan of challans; let i = index">
-        <ion-card-header text-wrap class="challanhead">
+        <ion-card-header class="challanhead">
           Challan No {{i + 1}}
         </ion-card-header>
         <ion-card-content>
@@ -24,7 +24,10 @@
               <strong>Date Paid: </strong> {{challan.challanDatePaid | date:'shortDate'}}
             </ion-item>
             <ion-item>
-              <strong>Date Paid: </strong> {{challan.challanPaid}}
+              <strong>Amount: </strong> {{challan.amount}}
+            </ion-item>
+            <ion-item>
+              <strong>Paid Status</strong> {{challan.isPaid?'Yes':'No'}}
             </ion-item>
           </ion-list>
         </ion-card-content>

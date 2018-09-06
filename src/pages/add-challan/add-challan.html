@@ -9,11 +9,11 @@
   <form [formGroup]="challanForm" (submit)="onAddNewChallan()">
     <ion-item>
       <ion-label>Date Created</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="challanDateCreated" name="challanDateCreated"></ion-datetime>
+      <ion-datetime formControlName="challanDateCreated" name="challanDateCreated"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Date Paid</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="challanDatePaid" name="challanDatePaid"></ion-datetime>
+      <ion-datetime formControlName="challanDatePaid" name="challanDatePaid"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Type</ion-label>
@@ -42,6 +42,10 @@
         <ion-option>Violation of parking rules</ion-option>
         <ion-option>Violation of any other provision of the ordinance or the rules made there under punishable under section 112</ion-option>
       </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input formControlName="amount" type="number" name="amount"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Paid</ion-label>

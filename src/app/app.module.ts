@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage'
 import { DatePipe } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
@@ -52,7 +53,8 @@ import { StripeCcProvider } from '../providers/stripe-cc/stripe-cc';
     HttpClientModule,
     ChallansPageModule,
     CreditCardPageModule,
-    SettingsPageModule
+    SettingsPageModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
