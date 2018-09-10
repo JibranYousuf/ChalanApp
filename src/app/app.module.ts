@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage'
 import { DatePipe } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { AboutPage } from '../pages/about/about';
@@ -77,6 +79,7 @@ import { StripeCcProvider } from '../providers/stripe-cc/stripe-cc';
     AuthserviceProvider,
     UserProvider,
     DatePipe,
+    Geolocation,
     Stripe,
     StripeCcProvider
   ]

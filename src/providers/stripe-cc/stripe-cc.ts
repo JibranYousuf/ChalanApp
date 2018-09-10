@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the StripeCcProvider provider.
@@ -10,16 +11,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class StripeCcProvider {
 
+
   url: any;
 
   constructor(public httpClient: HttpClient) {
-    this.url = 'https://tcs-server.herokuapp.com/api/';
+    this.url = 'https://tcs-server.herokuapp.com';
   }
 
-  payViaStripe(data){
-    var data;
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/xxx-www-form-urlencoded');
-    return this.httpClient.get(this.url + 'processpay/' + data, { headers: headers })
+    payment(data): Observable<any> {
+      console.log(data);
+      return this.httpClient.post(this.url + 'challans/processpay/', data);
     }
 }

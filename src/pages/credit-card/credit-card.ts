@@ -24,56 +24,75 @@ export class CreditCardPage {
   cvc: any;
   url: any;
 
-    constructor(
-      public navCtrl: NavController, 
-      public navParams: NavParams, 
-      private alertCtrl: AlertController, 
-      public stripe: Stripe,
-      public stripeCC: StripeCcProvider,
-      public http: Http 
-    ) {
-      this.url = 'https://tcs-server.herokuapp.com/api/';
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private alertCtrl: AlertController,
+    public stripe: Stripe,
+    public stripeCC: StripeCcProvider,
+    public http: Http
+  ) {
+    this.url = 'https://tcs-server.herokuapp.com/api/';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreditCardPage');
   }
-  onPayment(){
+
+//   onPayment(){
+//     let alert = this.alertCtrl.create({
+//      title: 'Challan Added',
+//      buttons: [
+//        {
+//          text: 'OK',
+//          handler: () => {
+//            this.navCtrl.setRoot(HomePage);
+//          }
+//        }
+//      ]
+//    });
+//    alert.present();
+//  }
+
+  onPayment() {
 
     let cardInfo = {
-      number : this.number,
+      number: this.number,
       expMonth: this.expMonth,
       expYear: this.expYear,
       cvc: this.cvc
     }
-    
+
+
+
+
     this.stripe.setPublishableKey('pk_test_DNrwbpjpcmEehadayDsYLeZ2');
     this.stripe.createCardToken(cardInfo)
-   .then(token => {
-    console.log(token.id)
-    var data = 'stripeToken=' + token + '&amount=50'
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post(this.url + 'processpay/' + data, { headers: headers })
-    .subscribe((res) =>{
-      if(res.json().success){
-        let alert = this.alertCtrl.create({
-          title: 'Challan Added',
-          buttons: [
-            {
-              text: 'OK',
-              handler: () => {
-                this.navCtrl.setRoot(HomePage);
-              }
+      .then(token => {
+        console.log(token.id)
+        var data = 'stripeToken=' + token + '&amount=50'
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post(this.url + 'challans/processpay/' + data, { headers: headers })
+          .subscribe((res) => {
+            if (res.json().success) {
+              let alert = this.alertCtrl.create({
+                title: 'Challan Added',
+                buttons: [
+                  {
+                    text: 'OK',
+                    handler: () => {
+                      this.navCtrl.setRoot(HomePage);
+                    }
+                  }
+                ]
+              });
+              alert.present();
             }
-          ]
-        });
-        alert.present();
-      }
-    })   
-    }, error => {
-      alert(error)
-      console.log(error);
-    })
-    }
+          })
+      }, error => {
+        alert(error)
+        console.log(error);
+      })
   }
+}

@@ -50,8 +50,8 @@ export class MyApp {
 
   onLogoutClick(){
     this.auth.logout();
-    this.nav.popToRoot();
     this.menuCtrl.close();
+    this.nav.push(WelcomePage);
   }
 
   viewProfilePage(page: any){
