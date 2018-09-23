@@ -35,7 +35,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       if(this.auth.isLogged() === true){
-        this.rootPage = HomePage;
+        this.rootPage = CreditCardPage;
       }
       else {
         this.rootPage = WelcomePage;

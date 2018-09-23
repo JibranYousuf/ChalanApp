@@ -10,25 +10,25 @@
       <ion-label>
         <ion-icon name='card'></ion-icon><span>Credit Card</span>
       </ion-label>
-      <ion-input [(ngModel)]="number" type="text" name="number"></ion-input>
+      <ion-input [(ngModel)]="number" type="number" name="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         <ion-icon name='calendar'></ion-icon> <span>Expiry Month</span>
       </ion-label>
-      <ion-input [(ngModel)]="expMonth" type="text" name="expMonth"></ion-input>
+      <ion-input [(ngModel)]="expMonth" type="number" name="expMonth"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         <ion-icon name="calendar"></ion-icon> <span>Expiry Year</span>
       </ion-label>
-      <ion-input [(ngModel)]="expYear" type="text" name="expYear" ></ion-input>
+      <ion-input [(ngModel)]="expYear" type="number" name="expYear" ></ion-input>
     </ion-item>
       <ion-item>
         <ion-label>
           <ion-icon name='code'></ion-icon> <span>CVC</span>
         </ion-label>
-        <ion-input [(ngModel)]="cvc" type="text" name="cvc"></ion-input>
+        <ion-input [(ngModel)]="cvc" type="number" name="cvc"></ion-input>
       </ion-item>
       <button ion-button block color="primary" type="submit">Pay Now</button>
   </form>
