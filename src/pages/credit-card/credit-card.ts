@@ -40,20 +40,6 @@ export class CreditCardPage {
     console.log('ionViewDidLoad CreditCardPage');
   }
 
-//   onPayment(){
-//     let alert = this.alertCtrl.create({
-//      title: 'Challan Added',
-//      buttons: [
-//        {
-//          text: 'OK',
-//          handler: () => {
-//            this.navCtrl.setRoot(HomePage);
-//          }
-//        }
-//      ]
-//    });
-//    alert.present();
-//  }
 
   onPayment() {
 
@@ -63,21 +49,32 @@ export class CreditCardPage {
       expYear: this.expYear,
       cvc: this.cvc
     }
-    
+
     this.stripe.createCardToken(card)
       .then((token) => {
         console.log(token)
         console.log(token.id)
         let data = {
-        stripeToken : token,
-        amount : 50
-      }
+          stripeToken: token,
+          amount: 50
+        }
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.post(this.url + 'challans/processpay/', data, {headers: headers})
+        this.http.post(this.url + 'challans/processpay/', data, { headers: headers })
           .subscribe((res) => {
             if (res) {
-              alert(token.id)
+              let alert = this.alertCtrl.create({
+                title: 'Challan Payment Paid',
+                buttons: [
+                  {
+                    text: 'OK',
+                    handler: () => {
+                      this.navCtrl.push(HomePage);
+                    }
+                  }
+                ]
+              });
+              alert.present();
             }
           })
       }, error => {
